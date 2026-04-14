@@ -1,5 +1,16 @@
 # Solo Workout Tracker - Changelog
 
+## v1.1 - 14 April 2026
+- Removed fixed day labels (no Wednesday/Friday association)
+- Added exercise library with slot-based selection
+- Lower body slots: Squat (7 exercises), Hinge (6 exercises), Core (6 exercises)
+- Upper body slots: Push (6 exercises), Pull (5 exercises), Vertical Push (5 exercises)
+- Exercise picker shown during new session creation with radio-style selection per slot
+- New sessions auto-populate exercise choices from most recent session of the same type
+- Previous session weight comparison now tracks per exercise across sessions (handles exercise swaps)
+- Movement pattern label shown on each exercise card during session logging
+- Storage key updated to v2 (fresh start, no migration from v1.0)
+
 ## v1.0 - 14 April 2026
 - Initial release (standalone HTML, localStorage)
 - Two workout types: Lower Body (Wednesday) and Upper Body (Friday)
