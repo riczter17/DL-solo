@@ -1,7 +1,7 @@
 # Solo Workout Tracker - Changelog
 
 ## v1.0 - 14 April 2026
-- Initial release
+- Initial release (standalone HTML, localStorage)
 - Two workout types: Lower Body (Wednesday) and Upper Body (Friday)
 - Lower body exercises: Goblet Squat, DB Romanian Deadlift, Dead Bug
 - Upper body exercises: DB Bench Press, Bench-Supported Row, Seated Shoulder Press
