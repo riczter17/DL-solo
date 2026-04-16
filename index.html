@@ -17,8 +17,8 @@ input[type="number"]{-moz-appearance:textfield}
 .header-left,.header-right{width:40px}
 .header-right{display:flex;justify-content:flex-end}
 .header h1{font-size:17px;font-weight:700;letter-spacing:-0.02em;color:#fff}
-.back-btn,.history-btn{background:none;border:none;cursor:pointer;padding:4px;display:flex}
-.back-btn{color:#f97316}.history-btn{color:rgba(255,255,255,0.5)}
+.back-btn,.history-btn,.menu-btn{background:none;border:none;cursor:pointer;padding:4px;display:flex;color:rgba(255,255,255,0.5)}
+.back-btn{color:#f97316}
 .content{padding:16px 20px 40px}
 .stats-row{display:flex;gap:10px;margin-bottom:24px}
 .stat-card{flex:1;background:rgba(255,255,255,0.04);border-radius:12px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;border:1px solid rgba(255,255,255,0.06)}
@@ -70,18 +70,21 @@ input[type="number"]{-moz-appearance:textfield}
 .shdr{display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .tbadge-lg{font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;color:#fff;text-transform:uppercase;letter-spacing:0.04em}
 .sdate{font-size:14px;color:rgba(255,255,255,0.5)}
-.mrow{display:flex;gap:12px;margin-bottom:20px}
-.mcard{flex:1;background:rgba(255,255,255,0.04);border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.06)}
-.mlbl{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px}
-.erow{display:flex;gap:6px}
-.ebtn{width:36px;height:36px;border-radius:8px;border:none;cursor:pointer;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4)}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.mcard{background:rgba(255,255,255,0.04);border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.06)}
+.mlbl{display:block;font-size:10px;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px}
+.erow{display:flex;gap:4px}
+.ebtn{flex:1;height:32px;border-radius:6px;border:none;cursor:pointer;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4)}
 .ebtn.active{font-weight:700}
-.durin{width:100%;padding:8px 0;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.15);color:#fff;font-size:22px;font-weight:700;text-align:center;outline:none}
+.durin,.slpin{width:100%;padding:4px 0;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.15);color:#fff;font-size:20px;font-weight:700;text-align:center;outline:none}
 .ecard{background:rgba(255,255,255,0.03);border-radius:14px;padding:16px;margin-bottom:14px;border:1px solid rgba(255,255,255,0.06)}
-.ehdr{margin-bottom:14px}
+.ehdr{margin-bottom:14px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.ehdr-l{flex:1}
 .ename{font-size:16px;font-weight:700;color:#fff}
 .eslot{font-size:10px;font-weight:700;color:#f97316;text-transform:uppercase;letter-spacing:0.05em;margin-top:2px;display:block}
 .emeta{font-size:12px;color:rgba(255,255,255,0.3);margin-top:2px;display:block}
+.info-btn{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);width:28px;height:28px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.info-btn:hover{background:rgba(255,255,255,0.1);color:#fff}
 .wrow{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px}
 .wbtn{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.08);border:none;color:#fff;font-size:20px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .wdisp{display:flex;align-items:baseline;gap:4px;min-width:80px;justify-content:center}
@@ -103,6 +106,16 @@ input[type="number"]{-moz-appearance:textfield}
 .scbtn.s3.active{background:#450a0a;border-color:#ef4444;color:#ef4444}
 .scbtn-n{font-size:16px;font-weight:800}
 .scbtn-l{font-size:10px;font-weight:600}
+.rpe-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rpe-lbl{font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);min-width:40px}
+.rpe-scale{display:flex;gap:3px;flex:1}
+.rpe-btn{flex:1;height:28px;border-radius:5px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.35);font-size:11px;font-weight:600;cursor:pointer}
+.rpe-btn.active{background:#f97316;color:#000;border-color:#f97316;font-weight:700}
+.disc-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.disc-chk{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:rgba(255,255,255,0.4)}
+.disc-chk input[type="checkbox"]{width:16px;height:16px;accent-color:#ef4444;cursor:pointer}
+.disc-chk.active{color:#ef4444}
+.disc-note{flex:1;padding:6px 10px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:6px;color:#fca5a5;font-size:12px;outline:none}
 .varin{width:100%;padding:8px 10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;color:rgba(255,255,255,0.5);font-size:13px;outline:none;margin-top:6px}
 .nsec{margin-top:10px}
 .nlbl{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.35);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em}
@@ -117,23 +130,78 @@ input[type="number"]{-moz-appearance:textfield}
 .pexr{display:flex;flex-direction:column;gap:2px}
 .pexn{font-size:13px;font-weight:600;color:rgba(255,255,255,0.6)}
 .pexs-tag{font-size:10px;color:rgba(255,255,255,0.2);text-transform:uppercase}
-.pexd{display:flex;gap:12px;align-items:center}
+.pexd{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .pexw{font-size:14px;font-weight:700;color:#fff;min-width:60px}
 .pexrp{font-size:13px;color:rgba(255,255,255,0.4);font-family:monospace}
 .pexsc{font-size:12px;font-weight:700}
+.pexrpe{font-size:11px;color:rgba(255,255,255,0.4)}
+.pexdisc{font-size:11px;color:#ef4444}
 .pexv{font-size:11px;color:rgba(255,255,255,0.25);font-style:italic}
 .pnotes{font-size:12px;color:rgba(255,255,255,0.3);margin-top:10px;font-style:italic}
 .pdelta{font-size:11px;margin-left:4px}
 .empty{text-align:center;padding:40px 20px}
 .empty p{color:rgba(255,255,255,0.3);font-size:14px}
 .ver{text-align:center;padding:20px;font-size:12px;color:rgba(255,255,255,0.35)}
+.guide-modal{max-height:85vh}
+.guide-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.guide-pattern{font-size:11px;font-weight:700;color:#f97316;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:20px}
+.guide-section{margin-bottom:18px}
+.guide-label{display:block;font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em}
+.guide-setup{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.5;margin-bottom:8px}
+.guide-cue{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start}
+.guide-cue-num{color:#f97316;font-weight:700;font-size:13px;flex-shrink:0;min-width:18px}
+.guide-cue-text{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.5}
+.guide-tip{background:rgba(249,115,22,0.08);border-left:2px solid #f97316;padding:10px 12px;border-radius:4px;font-size:13px;color:rgba(255,255,255,0.7);line-height:1.4}
+.video-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:10px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:8px;color:#fca5a5;font-size:13px;font-weight:600;cursor:pointer;margin-top:8px;text-decoration:none}
+.settings-sec{margin-top:24px;padding:16px;background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(255,255,255,0.06)}
+.export-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#e4e4e7;font-size:14px;font-weight:600;cursor:pointer;margin-bottom:8px}
+.export-btn:last-child{margin-bottom:0}
 </style>
 </head>
 <body>
 <div class="app" id="app"></div>
 <script>
-const V="1.1",SK="solo-workout-data-v2";
+const V="1.2",SK="solo-workout-data-v2";
 const DBW=[];for(let w=4;w<=40;w+=1.5)DBW.push(Math.round(w*10)/10);
+
+const GUIDES={
+goblet_squat:{setup:"Hold one dumbbell vertically at chest height, cupping the top head with both hands. Feet shoulder-width apart, toes slightly out.",cues:["Brace your core before descending","Knees track over your toes as you lower","Descend until thighs are at least parallel to floor","Drive through the full foot to stand","Keep chest up and elbows close to body throughout"],tip:"If your heels lift, elevate them slightly on a small plate or towel.",video:"https://www.youtube.com/results?search_query=goblet+squat+form+tutorial"},
+db_front_squat:{setup:"Hold two dumbbells at shoulder height, resting lightly on the front of your shoulders, elbows pointing forward.",cues:["Keep elbows high throughout the movement","Brace core and descend with control","Thighs to parallel or slightly below","Drive up through mid-foot"],tip:"If elbows drop, you'll dump the weight forward. Keep them pointing at the wall in front of you.",video:"https://www.youtube.com/results?search_query=dumbbell+front+squat+form"},
+db_split_squat:{setup:"Stagger your stance so one foot is forward and one back. Hold a dumbbell in each hand at your sides.",cues:["Lower back knee toward the floor","Keep front shin roughly vertical","Front knee tracks over toes","Drive up through the front heel"],tip:"Keep 70% of your weight on the front leg. The back leg is for balance.",video:"https://www.youtube.com/results?search_query=dumbbell+split+squat+form"},
+db_bulgarian:{setup:"Place the top of your back foot on a bench behind you. Hold dumbbells at your sides. Hop into position so your front foot is far enough forward.",cues:["Lower back knee toward the floor","Keep most weight on the front leg","Front knee tracks over toes","Drive up through the front heel"],tip:"If the stretch on your rear hip flexor is distracting, shorten the stance slightly.",video:"https://www.youtube.com/results?search_query=bulgarian+split+squat+dumbbell"},
+db_lunge:{setup:"Stand with feet together, dumbbells at your sides.",cues:["Step forward with one leg to a split stance","Lower until both knees are at 90 degrees","Push off the front foot to return to start","Alternate legs or complete all reps on one side first"],tip:"Control the descent. Dropping into the bottom is how knees get aggravated.",video:"https://www.youtube.com/results?search_query=dumbbell+lunge+form"},
+db_reverse_lunge:{setup:"Stand with feet together, dumbbells at your sides.",cues:["Step backward into a split stance","Lower until both knees are at 90 degrees","Push off the front foot to return to start","Alternate or complete all reps on one side"],tip:"Easier on the knees than forward lunges. Good choice if forward lunges aggravate your knees.",video:"https://www.youtube.com/results?search_query=dumbbell+reverse+lunge"},
+db_step_up:{setup:"Use a sturdy box or step about knee-height. Dumbbells at your sides.",cues:["Place full foot on the step","Drive through the heel to stand up","Step back down with control","Don't push off the bottom leg"],tip:"All the work should come from the leg on the step. If you're bouncing off the bottom leg, step height is too high.",video:"https://www.youtube.com/results?search_query=dumbbell+step+up+exercise"},
+db_rdl:{setup:"Stand with feet hip-width, dumbbells in front of thighs, palms facing you.",cues:["Soft bend in knees, maintained throughout","Push hips back to lower the weights","Weights travel close to the legs","Lower until you feel a stretch in hamstrings","Drive hips forward to stand up"],tip:"The movement is hips back, not knees bending. If weights drift away from your legs, reset.",video:"https://www.youtube.com/results?search_query=dumbbell+romanian+deadlift+form"},
+db_sl_rdl:{setup:"Stand on one leg, holding a dumbbell in the opposite hand.",cues:["Soft bend in the standing knee","Hinge at the hip, extending the free leg behind","Body forms a straight line from head to free heel","Lower until torso is parallel to floor","Return to standing, squeeze glute"],tip:"Start lighter than you think. Balance is the limiting factor. Use a wall or chair for support if needed.",video:"https://www.youtube.com/results?search_query=single+leg+romanian+deadlift+dumbbell"},
+db_stiff_leg:{setup:"Stand with feet hip-width, dumbbells in front of thighs. Legs nearly straight (minimal knee bend).",cues:["Maintain a fixed, nearly-straight knee angle","Hinge at the hips","Lower under control with flat back","Feel stretch in hamstrings","Drive hips forward to stand"],tip:"Stiffer legs than RDL means more stretch on hamstrings. Stop if you feel it in your lower back.",video:"https://www.youtube.com/results?search_query=stiff+leg+deadlift+dumbbell"},
+db_sumo_dl:{setup:"Wide stance, toes angled out. Hold one dumbbell vertically between your legs.",cues:["Chest up, flat back","Push knees out to match toe angle","Drive through full foot to stand","Squeeze glutes at the top"],tip:"The wide stance reduces lower back involvement and emphasises glutes and adductors.",video:"https://www.youtube.com/results?search_query=dumbbell+sumo+deadlift"},
+db_good_morning:{setup:"Hold one dumbbell against your upper chest with both hands. Feet hip-width, soft knees.",cues:["Maintain flat back throughout","Hinge at hips, pushing them back","Lower torso toward parallel","Drive hips forward to stand"],tip:"Start very light. Good mornings put direct load on the lower back. Form is critical.",video:"https://www.youtube.com/results?search_query=dumbbell+good+morning"},
+db_hip_thrust:{setup:"Upper back on a bench, feet flat on floor, knees bent at 90 degrees. Place a dumbbell across your hips.",cues:["Drive through heels","Lift hips until body forms a straight line","Squeeze glutes hard at the top","Lower with control, don't rest on floor between reps"],tip:"Use a folded towel under the dumbbell for comfort. Glute-focused, no hip flexor stretch involved.",video:"https://www.youtube.com/results?search_query=dumbbell+hip+thrust"},
+dead_bug:{setup:"Lie on your back, arms extended up toward ceiling, knees bent at 90 degrees (shins parallel to floor).",cues:["Press lower back into floor","Lower opposite arm and leg slowly","Keep back flat throughout","Return to start, alternate sides"],tip:"If your lower back arches off the floor, reduce range of motion. Back contact with floor is the priority.",video:"https://www.youtube.com/results?search_query=dead+bug+exercise+form"},
+plank:{setup:"Forearms on floor, elbows under shoulders. Body in a straight line from head to heels.",cues:["Squeeze glutes and quads","Tuck chin slightly","Don't let hips sag or pike up","Breathe normally throughout"],tip:"Quality over duration. Stop when form breaks rather than grinding out extra seconds.",video:"https://www.youtube.com/results?search_query=plank+form+tutorial"},
+bird_dog:{setup:"Start on hands and knees. Wrists under shoulders, knees under hips.",cues:["Extend opposite arm and leg simultaneously","Keep hips square and back flat","Pause briefly at full extension","Return with control, alternate sides"],tip:"Don't let your hips rotate. Imagine balancing a glass of water on your lower back.",video:"https://www.youtube.com/results?search_query=bird+dog+exercise"},
+ab_wheel:{setup:"Kneel on the floor holding the ab wheel. Knees on a pad for comfort.",cues:["Brace core hard before rolling out","Roll wheel forward slowly","Go only as far as you can control","Pull back with abs, not hip flexors"],tip:"Start with limited range. Rolling out too far with weak core leads to lower back injury.",video:"https://www.youtube.com/results?search_query=ab+wheel+rollout+form"},
+farmer_carry:{setup:"Hold a dumbbell in each hand at your sides. Stand tall.",cues:["Shoulders back and down","Walk with normal stride, upright posture","Don't let shoulders shrug","Breathe normally"],tip:"Pick a distance (e.g. 20 metres) or time (30 seconds). Keep posture locked throughout.",video:"https://www.youtube.com/results?search_query=farmers+carry+exercise"},
+suitcase_carry:{setup:"Hold one dumbbell in one hand. Other hand free.",cues:["Resist the pull to the weighted side","Stay tall, shoulders level","Don't lean away from the weight","Walk with normal stride"],tip:"More anti-rotation demand than farmer's carry. Your obliques do the work.",video:"https://www.youtube.com/results?search_query=suitcase+carry+exercise"},
+db_bench:{setup:"Lie on a flat bench, dumbbells at chest height, elbows at roughly 45 degrees from your torso.",cues:["Feet planted firmly on floor","Retract shoulder blades, keep them pinned","Press weights up and slightly together","Lower with control to chest level","Don't flare elbows to 90 degrees"],tip:"45-degree elbow angle protects shoulders. 90-degree flare is a shoulder injury waiting to happen.",video:"https://www.youtube.com/results?search_query=dumbbell+bench+press+form"},
+db_incline:{setup:"Bench at 30-45 degree incline, dumbbells at shoulder level.",cues:["Feet planted, shoulder blades retracted","Press up and slightly together","Lower to upper chest with control","Keep elbows at 45 degrees"],tip:"Steeper incline shifts emphasis to front delts. 30-45 degrees hits upper chest without overloading shoulders.",video:"https://www.youtube.com/results?search_query=dumbbell+incline+press"},
+db_floor_press:{setup:"Lie on the floor, dumbbells at chest height, knees bent or legs straight.",cues:["Elbows touch floor at bottom of each rep","Press up with control","Natural pause at bottom provided by floor","Don't bounce off the floor"],tip:"Floor limits range of motion, which can be helpful for shoulder issues. Also safer without a spotter.",video:"https://www.youtube.com/results?search_query=dumbbell+floor+press"},
+db_close_grip:{setup:"Lie on bench with dumbbells pressed together over chest, palms facing each other.",cues:["Keep dumbbells touching throughout","Elbows close to body (not flared)","Press up and lower under control","Feel it in your triceps and inner chest"],tip:"Great tricep-focused press. Lighter weight than regular bench because of the narrower lever.",video:"https://www.youtube.com/results?search_query=close+grip+dumbbell+press"},
+pushup_standard:{setup:"Hands shoulder-width on floor, body in a straight line from head to heels.",cues:["Core braced, glutes squeezed","Lower chest to the floor","Elbows at 45 degrees from body","Press back up fully"],tip:"If form breaks down, drop to knees rather than doing bad reps.",video:"https://www.youtube.com/results?search_query=push+up+proper+form"},
+pushup_incline:{setup:"Hands on a bench or elevated surface, body at a declined angle.",cues:["Higher bench = easier","Body straight, core braced","Lower chest to bench","Press back up fully"],tip:"Reduces load by about 30-50% depending on incline height. Good way to build up to standard push-ups.",video:"https://www.youtube.com/results?search_query=incline+push+up"},
+bench_row:{setup:"Set bench to 30-45 degree incline. Lie chest-down on the bench, dumbbells hanging below your shoulders.",cues:["Chest stays on bench throughout","Pull elbows back past your ribs","Squeeze shoulder blades together at top","Lower under control"],tip:"Chest-supported eliminates lower back involvement. Pure upper back focus.",video:"https://www.youtube.com/results?search_query=chest+supported+row+dumbbell"},
+db_bent_row:{setup:"Feet hip-width, hinge at hips to about 45 degrees, dumbbells hanging toward floor.",cues:["Flat back, braced core","Pull both dumbbells to hips","Squeeze shoulder blades together","Lower with control"],tip:"Keep the hinge angle consistent. If your torso rises each rep, you're losing tension in your back.",video:"https://www.youtube.com/results?search_query=dumbbell+bent+over+row"},
+db_single_row:{setup:"One hand and same-side knee on bench, opposite hand holds dumbbell.",cues:["Flat back, parallel to floor","Pull elbow up toward ceiling, past your ribs","Squeeze at top","Lower with control"],tip:"Don't twist your torso as you row. The rotation takes load off the back muscle.",video:"https://www.youtube.com/results?search_query=single+arm+dumbbell+row"},
+db_seal_row:{setup:"Lie face-down on a flat bench elevated so dumbbells don't touch the floor.",cues:["Chest stays on bench throughout","Pull both dumbbells up to the bench","Squeeze shoulder blades","Fully extend at the bottom"],tip:"Bench needs to be raised on blocks or a platform. Most strict variation of the row, zero cheating possible.",video:"https://www.youtube.com/results?search_query=seal+row+dumbbell"},
+db_reverse_fly:{setup:"Hinge at hips to about 45 degrees, dumbbells hanging below shoulders, soft elbow bend.",cues:["Raise arms out to the sides","Think about squeezing shoulder blades together","Small movement, strict form","Lower with control"],tip:"Much lighter weight than rows. Rear delts and upper back focus.",video:"https://www.youtube.com/results?search_query=dumbbell+reverse+fly"},
+shoulder_press:{setup:"Seated on a bench with back support. Dumbbells at shoulder height, palms facing forward.",cues:["Back pressed against bench pad","Press dumbbells overhead","Don't arch lower back","Lower to shoulder level under control"],tip:"If you can't keep your back against the pad, weight is too heavy.",video:"https://www.youtube.com/results?search_query=seated+dumbbell+shoulder+press"},
+db_standing_press:{setup:"Standing, dumbbells at shoulder height. Core braced, glutes squeezed.",cues:["Brace core tight, squeeze glutes","Press dumbbells overhead","Don't arch lower back or use leg drive","Lower to shoulders under control"],tip:"More core demand than seated. Standing strict press tests your whole body, not just shoulders.",video:"https://www.youtube.com/results?search_query=standing+dumbbell+press"},
+db_arnold:{setup:"Seated, dumbbells at chest height with palms facing you (like at the top of a curl).",cues:["Press up while rotating palms to face forward","Fully extend overhead","Reverse the motion on the way down","End with palms facing you again"],tip:"Hits all three heads of the deltoid. Lighter weight than standard press due to the rotation.",video:"https://www.youtube.com/results?search_query=arnold+press+dumbbell"},
+db_z_press:{setup:"Seated on the floor, legs extended straight in front, dumbbells at shoulder height.",cues:["Sit tall, core braced","Legs straight and together","Press dumbbells overhead","No back support = no cheating"],tip:"Strictest shoulder press variation. Removes all lower body contribution. Expect a big weight drop.",video:"https://www.youtube.com/results?search_query=z+press+dumbbell"},
+db_lateral_raise:{setup:"Stand with dumbbells at your sides, slight elbow bend, slight forward lean.",cues:["Raise arms out to the sides to shoulder height","Lead with elbows, not hands","Small pause at the top","Lower slowly with control"],tip:"Much lighter than presses. If you're swinging to lift the weight, it's too heavy.",video:"https://www.youtube.com/results?search_query=dumbbell+lateral+raise"}
+};
+
 const LIB={lower:{squat:{pattern:"Squat",exercises:[
 {id:"goblet_squat",name:"Goblet Squat",dw:25,sets:3,tr:10,rest:90,hw:true,unit:"kg"},
 {id:"db_front_squat",name:"DB Front Squat",dw:20,sets:3,tr:10,rest:90,hw:true,unit:"kg (each)"},
@@ -175,13 +243,15 @@ vert_push:{pattern:"Vertical Push",exercises:[
 {id:"db_arnold",name:"DB Arnold Press",dw:16,sets:3,tr:10,rest:90,hw:true,unit:"kg (each)"},
 {id:"db_z_press",name:"DB Z-Press",dw:13,sets:3,tr:10,rest:90,hw:true,unit:"kg (each)"},
 {id:"db_lateral_raise",name:"DB Lateral Raise",dw:8.5,sets:3,tr:12,rest:60,hw:true,unit:"kg (each)"}]}}};
+
 const SM={1:{l:"Easy",c:"#22c55e"},2:{l:"Hard",c:"#eab308"},3:{l:"Failed",c:"#ef4444"}};
 const EC={1:"#ef4444",2:"#f97316",3:"#eab308",4:"#22c55e",5:"#10b981"};
 
 function findEx(id){for(const t of Object.values(LIB))for(const s of Object.values(t)){const f=s.exercises.find(e=>e.id===id);if(f)return{...f,pattern:s.pattern}}return null}
 function slotFor(id,type){const lib=LIB[type];for(const[k,s]of Object.entries(lib))if(s.exercises.find(e=>e.id===id))return k;return null}
 
-let S={sessions:[],view:"home",aid:null,showModal:false,nType:"lower",nDate:td(),nSel:{},cdel:null,pType:"lower"};
+let S={sessions:[],view:"home",aid:null,showModal:false,nType:"lower",nDate:td(),nSel:{},cdel:null,pType:"lower",guideId:null};
+
 function td(){return new Date().toISOString().split("T")[0]}
 function gid(){return Date.now().toString(36)+Math.random().toString(36).substr(2,5)}
 function fd(d){return new Date(d+"T00:00:00").toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short",year:"numeric"})}
@@ -194,8 +264,8 @@ for(const[k,slot]of Object.entries(lib)){if(last){const le=last.exercises.find(e
 
 function mkSession(type,date,sel){const lib=LIB[type],last=S.sessions.filter(s=>s.type===type).sort((a,b)=>b.date.localeCompare(a.date))[0];
 const exs=Object.entries(lib).map(([k,slot])=>{const eid=sel[k],meta=slot.exercises.find(e=>e.id===eid),prev=last?.exercises.find(e=>e.id===eid);
-return{id:meta.id,slot:k,weight:prev?prev.weight:meta.dw,sets:Array.from({length:meta.sets},()=>({reps:null})),score:null,variation:""}});
-return{id:gid(),type,date,exercises:exs,wakeEnergy:null,workoutDuration:null,notes:""}}
+return{id:meta.id,slot:k,weight:prev?prev.weight:meta.dw,sets:Array.from({length:meta.sets},()=>({reps:null})),score:null,rpe:null,discomfort:false,discomfortNote:"",variation:""}});
+return{id:gid(),type,date,exercises:exs,wakeEnergy:null,sleepHours:null,workoutDuration:null,notes:""}}
 
 function prevFor(session,eid){const older=S.sessions.filter(s=>s.type===session.type&&s.date<session.date).sort((a,b)=>b.date.localeCompare(a.date));
 for(const s of older){const f=s.exercises.find(e=>e.id===eid);if(f)return f}return null}
@@ -205,7 +275,7 @@ const ci=DBW.indexOf(ex.weight);let ni=ci+dir;if(ni<0)ni=0;if(ni>=DBW.length)ni=
 
 function R(){const app=document.getElementById("app");let h="";
 if(S.view==="home")h=rHome();else if(S.view==="session")h=rSession();else if(S.view==="progress")h=rProgress();
-if(S.showModal)h+=rModal();app.innerHTML=h}
+if(S.showModal)h+=rModal();if(S.guideId)h+=rGuide();app.innerHTML=h}
 
 function rHome(){const sorted=[...S.sessions].sort((a,b)=>b.date.localeCompare(a.date)),lo=sorted.filter(s=>s.type==="lower"),up=sorted.filter(s=>s.type==="upper");
 let h=`<header class="header"><div class="header-left"></div><h1>Solo Tracker</h1><div class="header-right"><button class="history-btn" onclick="goP()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></button></div></header><div class="content">
@@ -216,7 +286,9 @@ if(sorted.length>0){h+=`<div class="section"><h3 class="section-title">All Sessi
 const sc=s.exercises.map(ex=>ex.score?`<span class="mscore" style="color:${SM[ex.score].c}">${ex.score}</span>`:`<span class="mscore-e">-</span>`).join("");
 const dl=S.cdel===s.id?`<div class="cfw"><button class="cfy" onclick="delS('${s.id}')">Delete</button><button class="cfn" onclick="cDel()">Cancel</button></div>`:`<button class="del-btn" onclick="cfDel('${s.id}')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>`;
 h+=`<div class="srow"><div class="srow-l" onclick="oS('${s.id}')"><span class="tdot ${s.type}"></span><div><span class="srow-date">${fd(s.date)}</span><span class="srow-type">${s.type==="lower"?"Lower Body":"Upper Body"}</span></div></div><div class="srow-r">${sc}${dl}</div></div>`});h+=`</div>`}
-h+=`<div class="section"><button class="sbtn" onclick="oModal()">Log a Past Session</button></div><div class="ver">v${V}</div></div>`;return h}
+h+=`<div class="section"><button class="sbtn" onclick="oModal()">Log a Past Session</button></div>`;
+if(sorted.length>0){h+=`<div class="settings-sec"><h3 class="section-title" style="margin-top:0">Export Data</h3><button class="export-btn" onclick="expJSON()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export JSON</button><button class="export-btn" onclick="expCSV()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export CSV</button></div>`}
+h+=`<div class="ver">v${V}</div></div>`;return h}
 
 function rLast(s){const exl=s.exercises.map(ex=>{const m=findEx(ex.id);const sc=ex.score?` <span class="sc${ex.score}">[${ex.score}]</span>`:"";return`<span class="mini-ex">${m?.name||ex.id}: ${ex.weight?ex.weight+"kg":"BW"}${sc}</span>`}).join("");
 return`<div class="last-card" onclick="oS('${s.id}')"><div class="last-hdr"><span class="tbadge ${s.type}">${s.type==="lower"?"Lower Body":"Upper Body"}</span><span class="last-date">${fd(s.date)}</span></div><div>${exl}</div></div>`}
@@ -231,11 +303,25 @@ return`<div class="overlay" onclick="cModal()"><div class="modal" onclick="event
 <div class="fg"><label class="fl">Exercises</label>${slots}</div>
 <button class="pbtn" onclick="startS()">Start Session</button></div></div>`}
 
+function rGuide(){const m=findEx(S.guideId),g=GUIDES[S.guideId];if(!m||!g)return"";
+const cues=g.cues.map((c,i)=>`<div class="guide-cue"><span class="guide-cue-num">${i+1}.</span><span class="guide-cue-text">${c}</span></div>`).join("");
+return`<div class="overlay" onclick="cGuide()"><div class="modal guide-modal" onclick="event.stopPropagation()">
+<h3 class="guide-title">${m.name}</h3><div class="guide-pattern">${m.pattern} pattern</div>
+<div class="guide-section"><span class="guide-label">Setup</span><p class="guide-setup">${g.setup}</p></div>
+<div class="guide-section"><span class="guide-label">Execution</span>${cues}</div>
+<div class="guide-section"><span class="guide-label">Key Tip</span><div class="guide-tip">${g.tip}</div></div>
+<a href="${g.video}" target="_blank" rel="noopener" class="video-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Watch demo on YouTube</a>
+</div></div>`}
+
 function rSession(){const s=gas();if(!s)return"";const bg=s.type==="lower"?"#9a3412":"#1e3a5f";
 let h=`<header class="header"><div class="header-left"><button class="back-btn" onclick="goH()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button></div><h1>Solo Tracker</h1><div class="header-right"></div></header>
 <div class="content"><div class="shdr"><span class="tbadge-lg" style="background:${bg}">${s.type==="lower"?"Lower Body":"Upper Body"}</span><span class="sdate">${fd(s.date)}</span></div>
-<div class="mrow"><div class="mcard"><span class="mlbl">Wake Energy</span><div class="erow">${[1,2,3,4,5].map(n=>`<button class="ebtn${s.wakeEnergy===n?" active":""}" style="${s.wakeEnergy===n?`background:${EC[n]};color:#000`:""}" onclick="sE(${n})">${n}</button>`).join("")}</div></div>
-<div class="mcard"><span class="mlbl">Duration (min)</span><input type="number" inputmode="numeric" class="durin" value="${s.workoutDuration||""}" placeholder="--" onchange="sD(this.value)"></div></div>`;
+<div class="mrow">
+<div class="mcard"><span class="mlbl">Wake Energy</span><div class="erow">${[1,2,3,4,5].map(n=>`<button class="ebtn${s.wakeEnergy===n?" active":""}" style="${s.wakeEnergy===n?`background:${EC[n]};color:#000`:""}" onclick="sE(${n})">${n}</button>`).join("")}</div></div>
+<div class="mcard"><span class="mlbl">Sleep (hrs)</span><input type="number" step="0.5" inputmode="decimal" class="slpin" value="${s.sleepHours||""}" placeholder="--" onchange="sSL(this.value)"></div>
+<div class="mcard"><span class="mlbl">Duration (min)</span><input type="number" inputmode="numeric" class="durin" value="${s.workoutDuration||""}" placeholder="--" onchange="sD(this.value)"></div>
+<div class="mcard"><span class="mlbl" style="opacity:0">.</span><span style="font-size:11px;color:rgba(255,255,255,0.3);line-height:1.4;display:block;padding-top:4px">RPE 1-10 per exercise below. Discomfort flag available per exercise.</span></div>
+</div>`;
 
 s.exercises.forEach((ex,ei)=>{const m=findEx(ex.id);if(!m)return;const pe=prevFor(s,ex.id);const lib=LIB[s.type];const pat=Object.values(lib).find(sl=>sl.exercises.find(e=>e.id===ex.id))?.pattern||"";
 let wh="";if(m.hw){let dh="";if(pe&&pe.weight!==ex.weight){const d=ex.weight-pe.weight;dh=`<span class="wdelta" style="color:${d>0?"#22c55e":"#ef4444"}">${d>0?"+":""}${d.toFixed(1)}</span>`}
@@ -243,7 +329,9 @@ wh=`<div class="wrow"><button class="wbtn" onclick="cycleW(${ei},-1)">-</button>
 const sh=ex.sets.map((st,si)=>{const pr=pe?.sets[si]?.reps;const prh=pr!=null?`<span class="prev-r">prev: ${pr}</span>`:"";const emp=st.reps===null;
 return`<div class="set-item"><span class="set-lbl">S${si+1}</span><input type="number" inputmode="numeric" class="repin${emp?" ph":""}" value="${emp?"":st.reps}" placeholder="${m.tr}" onchange="sR(${ei},${si},this.value)">${prh}</div>`}).join("");
 const scb=[1,2,3].map(sc=>`<button class="scbtn s${sc}${ex.score===sc?" active":""}" onclick="sSc(${ei},${sc})"><span class="scbtn-n">${sc}</span><span class="scbtn-l">${SM[sc].l}</span></button>`).join("");
-h+=`<div class="ecard"><div class="ehdr"><h3 class="ename">${m.name}</h3><span class="eslot">${pat}</span><span class="emeta">${m.sets}x${m.tr} ${m.unit} | ${m.rest}s rest</span></div>${wh}<div class="sets-row">${sh}</div><div class="scrow"><span class="sclbl">Score</span><div class="scbtns">${scb}</div></div><input type="text" class="varin" value="${ex.variation||""}" placeholder="Variation notes..." onchange="sV(${ei},this.value)"></div>`});
+const rpeBtns=[1,2,3,4,5,6,7,8,9,10].map(r=>`<button class="rpe-btn${ex.rpe===r?" active":""}" onclick="sRPE(${ei},${r})">${r}</button>`).join("");
+const discNoteHtml=ex.discomfort?`<input type="text" class="disc-note" value="${ex.discomfortNote||""}" placeholder="Where / when / how severe..." onchange="sDN(${ei},this.value)">`:"";
+h+=`<div class="ecard"><div class="ehdr"><div class="ehdr-l"><h3 class="ename">${m.name}</h3><span class="eslot">${pat}</span><span class="emeta">${m.sets}x${m.tr} ${m.unit} | ${m.rest}s rest</span></div><button class="info-btn" onclick="oGuide('${ex.id}')" title="Exercise guide"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></button></div>${wh}<div class="sets-row">${sh}</div><div class="scrow"><span class="sclbl">Score</span><div class="scbtns">${scb}</div></div><div class="rpe-row"><span class="rpe-lbl">RPE</span><div class="rpe-scale">${rpeBtns}</div></div><div class="disc-row"><label class="disc-chk${ex.discomfort?" active":""}"><input type="checkbox" ${ex.discomfort?"checked":""} onchange="sDisc(${ei},this.checked)">Pain/discomfort</label>${discNoteHtml}</div><input type="text" class="varin" value="${ex.variation||""}" placeholder="Variation notes..." onchange="sV(${ei},this.value)"></div>`});
 
 h+=`<div class="nsec"><label class="nlbl">Session Notes</label><textarea class="nin" placeholder="How did the session feel overall?" onchange="sN(this.value)" rows="3">${s.notes||""}</textarea></div></div>`;return h}
 
@@ -251,20 +339,39 @@ function rProgress(){const type=S.pType,fil=S.sessions.filter(s=>s.type===type).
 let h=`<header class="header"><div class="header-left"><button class="back-btn" onclick="goH()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button></div><h1>Solo Tracker</h1><div class="header-right"></div></header>
 <div class="content"><div class="trow"><button class="tbtn${type==="lower"?" active":""}" onclick="sPT('lower')"><span class="tlbl">Lower Body</span></button><button class="tbtn${type==="upper"?" active":""}" onclick="sPT('upper')"><span class="tlbl">Upper Body</span></button></div>`;
 if(!fil.length){h+=`<div class="empty"><p>No sessions logged yet.</p></div>`}else{fil.forEach((s,idx)=>{const prev=idx>0?fil[idx-1]:null;
-const et=s.wakeEnergy?`<span class="petag" style="color:${EC[s.wakeEnergy]}">E:${s.wakeEnergy}</span>`:"";const dt=s.workoutDuration?`<span class="pdtag">${s.workoutDuration}m</span>`:"";
+const et=s.wakeEnergy?`<span class="petag" style="color:${EC[s.wakeEnergy]}">E:${s.wakeEnergy}</span>`:"";
+const slp=s.sleepHours?`<span class="pdtag">💤${s.sleepHours}h</span>`:"";
+const dt=s.workoutDuration?`<span class="pdtag">${s.workoutDuration}m</span>`:"";
 const exh=s.exercises.map(ex=>{const m=findEx(ex.id);if(!m)return"";const pe=prev?.exercises.find(e=>e.id===ex.id);const rps=ex.sets.map(s=>s.reps??"-").join("/");
 let wh="";if(m.hw){let dl="";if(pe&&ex.weight!==pe.weight){const d=ex.weight-pe.weight;dl=`<span class="pdelta" style="color:${d>0?"#22c55e":"#ef4444"}">${d>0?"+":""}${d.toFixed(1)}</span>`}wh=`<span class="pexw">${ex.weight}kg${dl}</span>`}
-const sch=ex.score?`<span class="pexsc" style="color:${SM[ex.score].c}">${SM[ex.score].l}</span>`:"";const vh=ex.variation?`<span class="pexv">${ex.variation}</span>`:"";
-return`<div class="pexr"><div style="display:flex;gap:8px;align-items:center"><span class="pexn">${m.name}</span><span class="pexs-tag">${m.pattern}</span></div><div class="pexd">${wh}<span class="pexrp">${rps}</span>${sch}</div>${vh}</div>`}).join("");
+const sch=ex.score?`<span class="pexsc" style="color:${SM[ex.score].c}">${SM[ex.score].l}</span>`:"";
+const rpeh=ex.rpe?`<span class="pexrpe">RPE ${ex.rpe}</span>`:"";
+const dsch=ex.discomfort?`<span class="pexdisc">⚠ ${ex.discomfortNote||"discomfort"}</span>`:"";
+const vh=ex.variation?`<span class="pexv">${ex.variation}</span>`:"";
+return`<div class="pexr"><div style="display:flex;gap:8px;align-items:center"><span class="pexn">${m.name}</span><span class="pexs-tag">${m.pattern}</span></div><div class="pexd">${wh}<span class="pexrp">${rps}</span>${sch}${rpeh}</div>${dsch?`<div class="pexd">${dsch}</div>`:""}${vh}</div>`}).join("");
 const nh=s.notes?`<p class="pnotes">${s.notes}</p>`:"";
-h+=`<div class="pcard"><div class="phdr"><span class="pwk">Week ${idx+1}</span><span class="pdt">${fd(s.date)}</span>${et}${dt}</div><div class="pexs">${exh}</div>${nh}</div>`})}
+h+=`<div class="pcard"><div class="phdr"><span class="pwk">Week ${idx+1}</span><span class="pdt">${fd(s.date)}</span>${et}${slp}${dt}</div><div class="pexs">${exh}</div>${nh}</div>`})}
 h+=`</div>`;return h}
+
+// EXPORTS
+function expJSON(){const data={exported:new Date().toISOString(),version:V,sessions:S.sessions};
+const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`solo-workouts-${td()}.json`;a.click();URL.revokeObjectURL(url)}
+
+function expCSV(){const rows=[["Date","Type","Wake Energy","Sleep Hours","Duration Min","Exercise","Pattern","Weight (kg)","Set 1 Reps","Set 2 Reps","Set 3 Reps","Score","RPE","Discomfort","Discomfort Note","Variation","Session Notes"]];
+S.sessions.sort((a,b)=>a.date.localeCompare(b.date)).forEach(s=>{s.exercises.forEach(ex=>{const m=findEx(ex.id);if(!m)return;
+const reps=[0,1,2].map(i=>ex.sets[i]?.reps??"");
+rows.push([s.date,s.type,s.wakeEnergy??"",s.sleepHours??"",s.workoutDuration??"",m.name,m.pattern,m.hw?ex.weight:"",reps[0],reps[1],reps[2],ex.score?SM[ex.score].l:"",ex.rpe??"",ex.discomfort?"Yes":"",ex.discomfortNote||"",ex.variation||"",s.notes?.replace(/"/g,'""').replace(/\n/g," ")||""])})});
+const csv=rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(",")).join("\n");
+const blob=new Blob([csv],{type:"text/csv"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`solo-workouts-${td()}.csv`;a.click();URL.revokeObjectURL(url)}
 
 function goH(){S.view="home";S.aid=null;R()}
 function goP(){S.view="progress";R()}
 function sPT(t){S.pType=t;R()}
 function oModal(){S.showModal=true;S.nType="lower";S.nDate=td();S.nSel=defSel("lower");R()}
 function cModal(){S.showModal=false;R()}
+function oGuide(id){S.guideId=id;R()}
+function cGuide(){S.guideId=null;R()}
 function sNT(t){S.nType=t;S.nSel=defSel(t);R()}
 function selEx(k,id){S.nSel[k]=id;R()}
 function startS(){const ex=S.sessions.find(s=>s.date===S.nDate&&s.type===S.nType);
@@ -272,9 +379,13 @@ if(ex){S.aid=ex.id;S.view="session";S.showModal=false;R();return}
 const s=mkSession(S.nType,S.nDate,S.nSel);S.sessions.push(s);S.sessions.sort((a,b)=>b.date.localeCompare(a.date));save();S.aid=s.id;S.view="session";S.showModal=false;R()}
 function oS(id){S.aid=id;S.view="session";R()}
 function sE(n){const s=gas();s.wakeEnergy=s.wakeEnergy===n?null:n;save();R()}
+function sSL(v){const s=gas();s.sleepHours=v?parseFloat(v):null;save()}
 function sD(v){const s=gas();s.workoutDuration=v?parseInt(v):null;save()}
 function sR(ei,si,v){const s=gas();s.exercises[ei].sets[si].reps=v===""?null:parseInt(v)||0;save();R()}
 function sSc(ei,sc){const s=gas();s.exercises[ei].score=s.exercises[ei].score===sc?null:sc;save();R()}
+function sRPE(ei,r){const s=gas();s.exercises[ei].rpe=s.exercises[ei].rpe===r?null:r;save();R()}
+function sDisc(ei,v){const s=gas();s.exercises[ei].discomfort=v;if(!v)s.exercises[ei].discomfortNote="";save();R()}
+function sDN(ei,v){const s=gas();s.exercises[ei].discomfortNote=v;save()}
 function sV(ei,v){const s=gas();s.exercises[ei].variation=v;save()}
 function sN(v){const s=gas();s.notes=v;save()}
 function cfDel(id){S.cdel=id;R()}

@@ -1,5 +1,16 @@
 # Solo Workout Tracker - Changelog
 
+## v1.2 - 16 April 2026
+- Added export data functions on home page (JSON and CSV formats)
+- Added sleep hours tracking per session (input accepts decimals, e.g. 7.5)
+- Added RPE tracking per exercise (1-10 scale separate from score)
+- Added pain/discomfort flag per exercise with optional note field
+- Added exercise guide modal accessible from info icon on each exercise card
+- Each guide includes: setup instructions, numbered execution cues, key tip, and YouTube video link
+- 35 exercises covered with curated guides and demo video searches
+- Progress view now displays RPE and discomfort flags alongside existing data
+- CSV export includes all metrics for spreadsheet analysis
+
 ## v1.1 - 14 April 2026
 - Removed fixed day labels (no Wednesday/Friday association)
 - Added exercise library with slot-based selection
@@ -10,6 +21,7 @@
 - Previous session weight comparison now tracks per exercise across sessions (handles exercise swaps)
 - Movement pattern label shown on each exercise card during session logging
 - Storage key updated to v2 (fresh start, no migration from v1.0)
+- Version number displayed at bottom of home screen (visible)
 
 ## v1.0 - 14 April 2026
 - Initial release (standalone HTML, localStorage)
