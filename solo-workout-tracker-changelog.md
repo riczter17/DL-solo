@@ -2,6 +2,9 @@
 
 ## v1.2 - 16 April 2026
 - Added export data functions on home page (JSON and CSV formats)
+- Export buttons always visible (disabled until at least one session is logged)
+- RPE buttons now show reps-in-reserve (RIR) labels for 6-10 (e.g. "8 | 2 RIR")
+- RPE 1-5 dimmed visually since they are rarely used for working sets
 - Added sleep hours tracking per session (input accepts decimals, e.g. 7.5)
 - Added RPE tracking per exercise (1-10 scale separate from score)
 - Added pain/discomfort flag per exercise with optional note field
