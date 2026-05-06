@@ -69,7 +69,25 @@ input[type="number"]{-moz-appearance:textfield}
 .exopt.sel .exopt-chk{border-color:#f97316;background:#f97316}
 .shdr{display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .tbadge-lg{font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;color:#fff;text-transform:uppercase;letter-spacing:0.04em}
-.sdate{font-size:14px;color:rgba(255,255,255,0.5)}
+.sdate{font-size:14px;color:rgba(255,255,255,0.5);cursor:pointer}
+.sdate:active{color:#f97316}
+.sdate .edit-ico{font-size:10px;color:rgba(255,255,255,0.2);margin-left:4px}
+.date-edit{display:flex;align-items:center;gap:8px}
+.date-edit input{padding:6px 10px;background:rgba(255,255,255,0.06);border:1px solid #f97316;border-radius:8px;color:#fff;font-size:14px;font-weight:600}
+.date-edit button{padding:6px 12px;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer}
+.date-save{background:#f97316;color:#000}
+.date-cancel{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5)}
+.routine-card{background:rgba(255,255,255,0.03);border-radius:12px;border:1px solid rgba(255,255,255,0.06);margin-bottom:14px;overflow:hidden}
+.routine-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer}
+.routine-hdr-l{display:flex;align-items:center;gap:8px}
+.routine-ico{font-size:14px}
+.routine-title{font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.05em}
+.routine-chv{font-size:10px;color:rgba(255,255,255,0.2)}
+.routine-body{padding:0 16px 14px}
+.routine-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}
+.routine-item:last-child{margin-bottom:0}
+.routine-dot{width:6px;height:6px;border-radius:50%;background:#f97316;flex-shrink:0;margin-top:6px}
+.routine-text{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.4}
 .mrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
 .mcard{background:rgba(255,255,255,0.04);border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.06)}
 .mlbl{display:block;font-size:10px;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px}
@@ -166,7 +184,7 @@ input[type="number"]{-moz-appearance:textfield}
 <body>
 <div class="app" id="app"></div>
 <script>
-const V="1.2",SK="solo-workout-data-v2";
+const V="1.3",SK="solo-workout-data-v2";
 const DBW=[];for(let w=4;w<=40;w+=1.5)DBW.push(Math.round(w*10)/10);
 
 const GUIDES={
@@ -252,10 +270,12 @@ vert_push:{pattern:"Vertical Push",exercises:[
 const SM={1:{l:"Easy",c:"#22c55e"},2:{l:"Hard",c:"#eab308"},3:{l:"Failed",c:"#ef4444"}};
 const EC={1:"#ef4444",2:"#f97316",3:"#eab308",4:"#22c55e",5:"#10b981"};
 
+const ROUTINES={lower:{warmup:["Hip circles (10 each direction)","Leg swings (10 each leg, forward and lateral)","Quad stretches (15 sec each leg)"],cooldown:["Figure-4 stretch (30 sec each side)","Pigeon pose (30 sec each side)","Child's pose (30 sec)"]},upper:{warmup:["Arm circles (10 each direction, small then large)","Band pull-aparts (10 reps) or shoulder pass-throughs","Shoulder rolls (10 forward, 10 backward)"],cooldown:["Doorframe chest stretch (20 sec each side)","Cross-body shoulder stretch (20 sec each arm)","Child's pose (30 sec)"]}};
+
 function findEx(id){for(const t of Object.values(LIB))for(const s of Object.values(t)){const f=s.exercises.find(e=>e.id===id);if(f)return{...f,pattern:s.pattern}}return null}
 function slotFor(id,type){const lib=LIB[type];for(const[k,s]of Object.entries(lib))if(s.exercises.find(e=>e.id===id))return k;return null}
 
-let S={sessions:[],view:"home",aid:null,showModal:false,nType:"lower",nDate:td(),nSel:{},cdel:null,pType:"lower",guideId:null};
+let S={sessions:[],view:"home",aid:null,showModal:false,nType:"lower",nDate:td(),nSel:{},cdel:null,pType:"lower",guideId:null,dateEditOpen:false,warmupOpen:false,cooldownOpen:false};
 
 function td(){return new Date().toISOString().split("T")[0]}
 function gid(){return Date.now().toString(36)+Math.random().toString(36).substr(2,5)}
@@ -320,8 +340,20 @@ return`<div class="overlay" onclick="cGuide()"><div class="modal guide-modal" on
 
 function rSession(){const s=gas();if(!s)return"";const bg=s.type==="lower"?"#9a3412":"#1e3a5f";
 let h=`<header class="header"><div class="header-left"><button class="back-btn" onclick="goH()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button></div><h1>Solo Tracker</h1><div class="header-right"></div></header>
-<div class="content"><div class="shdr"><span class="tbadge-lg" style="background:${bg}">${s.type==="lower"?"Lower Body":"Upper Body"}</span><span class="sdate">${fd(s.date)}</span></div>
-<div class="mrow">
+<div class="content"><div class="shdr"><span class="tbadge-lg" style="background:${bg}">${s.type==="lower"?"Lower Body":"Upper Body"}</span>`;
+if(S.dateEditOpen){
+h+=`<div class="date-edit"><input type="date" id="dateEditInput" value="${s.date}"><button class="date-save" onclick="doChangeDate()">Save</button><button class="date-cancel" onclick="S.dateEditOpen=false;R()">Cancel</button></div>`;
+}else{
+h+=`<span class="sdate" onclick="S.dateEditOpen=true;R()">${fd(s.date)} <span class="edit-ico">\u{270F}</span></span>`;
+}
+h+=`</div>`;
+
+const rt=ROUTINES[s.type];
+h+=`<div class="routine-card"><div class="routine-hdr" onclick="S.warmupOpen=!S.warmupOpen;R()"><div class="routine-hdr-l"><span class="routine-ico">\u{1F525}</span><span class="routine-title">Warm-up (~3 min)</span></div><span class="routine-chv">${S.warmupOpen?"\u{25B2}":"\u{25BC}"}</span></div>`;
+if(S.warmupOpen){h+=`<div class="routine-body">`;rt.warmup.forEach(item=>{h+=`<div class="routine-item"><span class="routine-dot"></span><span class="routine-text">${item}</span></div>`});h+=`</div>`}
+h+=`</div>`;
+
+h+=`<div class="mrow">
 <div class="mcard"><span class="mlbl">Wake Energy</span><div class="erow">${[1,2,3,4,5].map(n=>`<button class="ebtn${s.wakeEnergy===n?" active":""}" style="${s.wakeEnergy===n?`background:${EC[n]};color:#000`:""}" onclick="sE(${n})">${n}</button>`).join("")}</div></div>
 <div class="mcard"><span class="mlbl">Sleep (hrs)</span><input type="number" step="0.5" inputmode="decimal" class="slpin" value="${s.sleepHours||""}" placeholder="--" onchange="sSL(this.value)"></div>
 <div class="mcard"><span class="mlbl">Duration (min)</span><input type="number" inputmode="numeric" class="durin" value="${s.workoutDuration||""}" placeholder="--" onchange="sD(this.value)"></div>
@@ -338,6 +370,10 @@ const RPE_RIR={1:"",2:"",3:"",4:"",5:"",6:"4 RIR",7:"3 RIR",8:"2 RIR",9:"1 RIR",
 const rpeBtns=[1,2,3,4,5,6,7,8,9,10].map(r=>`<button class="rpe-btn${ex.rpe===r?" active":""}${r<=5?" dim":""}" onclick="sRPE(${ei},${r})"><span class="rpe-num">${r}</span>${RPE_RIR[r]?`<span class="rpe-rir">${RPE_RIR[r]}</span>`:""}</button>`).join("");
 const discNoteHtml=ex.discomfort?`<input type="text" class="disc-note" value="${ex.discomfortNote||""}" placeholder="Where / when / how severe..." onchange="sDN(${ei},this.value)">`:"";
 h+=`<div class="ecard"><div class="ehdr"><div class="ehdr-l"><h3 class="ename">${m.name}</h3><span class="eslot">${pat}</span><span class="emeta">${m.sets}x${m.tr} ${m.unit} | ${m.rest}s rest</span></div><button class="info-btn" onclick="oGuide('${ex.id}')" title="Exercise guide"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></button></div>${wh}<div class="sets-row">${sh}</div><div class="scrow"><span class="sclbl">Score</span><div class="scbtns">${scb}</div></div><div class="rpe-row"><span class="rpe-lbl">RPE</span><div class="rpe-scale">${rpeBtns}</div></div><div class="disc-row"><label class="disc-chk${ex.discomfort?" active":""}"><input type="checkbox" ${ex.discomfort?"checked":""} onchange="sDisc(${ei},this.checked)">Pain/discomfort</label>${discNoteHtml}</div><input type="text" class="varin" value="${ex.variation||""}" placeholder="Variation notes..." onchange="sV(${ei},this.value)"></div>`});
+
+h+=`<div class="routine-card"><div class="routine-hdr" onclick="S.cooldownOpen=!S.cooldownOpen;R()"><div class="routine-hdr-l"><span class="routine-ico">\u{1F9CA}</span><span class="routine-title">Cool-down (~3 min)</span></div><span class="routine-chv">${S.cooldownOpen?"\u{25B2}":"\u{25BC}"}</span></div>`;
+if(S.cooldownOpen){const cd=ROUTINES[s.type];h+=`<div class="routine-body">`;cd.cooldown.forEach(item=>{h+=`<div class="routine-item"><span class="routine-dot"></span><span class="routine-text">${item}</span></div>`});h+=`</div>`}
+h+=`</div>`;
 
 h+=`<div class="nsec"><label class="nlbl">Session Notes</label><textarea class="nin" placeholder="How did the session feel overall?" onchange="sN(this.value)" rows="3">${s.notes||""}</textarea></div></div>`;return h}
 
@@ -371,13 +407,21 @@ rows.push([s.date,s.type,s.wakeEnergy??"",s.sleepHours??"",s.workoutDuration??""
 const csv=rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(",")).join("\n");
 const blob=new Blob([csv],{type:"text/csv"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`solo-workouts-${td()}.csv`;a.click();URL.revokeObjectURL(url)}
 
-function goH(){S.view="home";S.aid=null;R()}
+function goH(){S.view="home";S.aid=null;S.dateEditOpen=false;S.warmupOpen=false;S.cooldownOpen=false;R()}
 function goP(){S.view="progress";R()}
 function sPT(t){S.pType=t;R()}
 function oModal(){S.showModal=true;S.nType="lower";S.nDate=td();S.nSel=defSel("lower");R()}
 function cModal(){S.showModal=false;R()}
 function oGuide(id){S.guideId=id;R()}
 function cGuide(){S.guideId=null;R()}
+function doChangeDate(){
+const inp=document.getElementById("dateEditInput");if(!inp)return;
+const newDate=inp.value;if(!newDate)return;
+const s=gas();if(!s)return;
+const conflict=S.sessions.find(x=>x.date===newDate&&x.id!==s.id);
+if(conflict){alert("A session already exists on "+fd(newDate)+". Pick a different date.");return}
+s.date=newDate;S.dateEditOpen=false;save();R();
+}
 function sNT(t){S.nType=t;S.nSel=defSel(t);R()}
 function selEx(k,id){S.nSel[k]=id;R()}
 function startS(){const ex=S.sessions.find(s=>s.date===S.nDate&&s.type===S.nType);

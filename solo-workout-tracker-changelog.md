@@ -1,5 +1,21 @@
 # Solo Workout Tracker - Changelog
 
+## v1.3 - 5 May 2026
+- Added ability to change session date after creation
+  - Tap the date in the session header to edit
+  - Date picker with Save/Cancel buttons
+  - Validates against duplicate dates
+- Added collapsible warm-up section at top of session view
+  - Type-aware: lower body and upper body show different routines
+  - Lower body warm-up: hip circles, leg swings, quad stretches
+  - Upper body warm-up: arm circles, band pull-aparts/shoulder pass-throughs, shoulder rolls
+- Added collapsible cool-down section below exercises (before session notes)
+  - Type-aware: lower body and upper body show different routines
+  - Lower body cool-down: figure-4 stretch, pigeon pose, child's pose
+  - Upper body cool-down: doorframe chest stretch, cross-body shoulder stretch, child's pose
+- Both sections collapsed by default (tap to expand)
+- Fully backward compatible with v1.2 data
+
 ## v1.2 - 16 April 2026
 - Added export data functions on home page (JSON and CSV formats)
 - Export buttons always visible (disabled until at least one session is logged)
